@@ -13,7 +13,6 @@ class JSONDiffViewer {
             this.generateDiff();
         });
         
-        // Add example data
         this.loadExampleData();
     }
     
@@ -46,10 +45,8 @@ class JSONDiffViewer {
             const originalJson = JSON.parse(this.originalJsonTextarea.value);
             const patchArray = JSON.parse(this.patchJsonTextarea.value);
             
-            // Apply patches and track changes
             const result = this.applyPatches(originalJson, patchArray);
             
-            // Generate diff visualization
             this.displayDiff(originalJson, result.patched, result.changes);
             
         } catch (error) {
@@ -115,8 +112,8 @@ class JSONDiffViewer {
             if (key === '-') {
                 const newIndex = parent.length;
                 parent.push(value);
-                // Update the path to include the actual index for tracking
                 const actualPath = [...pathArray.slice(0, -1), newIndex];
+
                 return { type: 'add', path: actualPath, value, index: newIndex };
             } else {
                 parent.splice(key, 0, value);
@@ -220,7 +217,6 @@ class JSONDiffViewer {
     createSemanticDiff(original, patched, changes) {
         const result = [];
         
-        // Create maps to track what changed
         const changesByPath = new Map();
         changes.forEach(change => {
             const pathKey = change.path.join('/');
