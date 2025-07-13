@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+}
+
+header p {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+
+.input-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #2c3e50;
+}
+
+.input-group textarea {
+    min-height: 200px;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 14px;
+    resize: vertical;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+.input-group textarea:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.btn-primary {
+    grid-column: 1 / -1;
+    padding: 15px 30px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+.output-section {
+    margin-top: 30px;
+}
+
+.diff-container h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.diff-output {
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    min-height: 300px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 14px;
+    overflow-x: auto;
+}
+
+.placeholder {
+    padding: 40px;
+    text-align: center;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+/* Diff styling */
+.diff-line {
+    display: flex;
+    align-items: flex-start;
+    min-height: 20px;
+    padding: 2px 0;
+    border-left: 4px solid transparent;
+}
+
+.diff-line-number {
+    width: 60px;
+    padding: 0 10px;
+    color: #666;
+    background-color: #f8f9fa;
+    text-align: right;
+    user-select: none;
+    flex-shrink: 0;
+}
+
+.diff-line-content {
+    flex: 1;
+    padding: 0 15px;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+/* Added lines */
+.diff-line.added {
+    background-color: #d4edda;
+    border-left-color: #28a745;
+}
+
+.diff-line.added .diff-line-number {
+    background-color: #c3e6cb;
+}
+
+.diff-line.added .diff-line-content::before {
+    content: "+ ";
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* Removed lines */
+.diff-line.removed {
+    background-color: #f8d7da;
+    border-left-color: #dc3545;
+}
+
+.diff-line.removed .diff-line-number {
+    background-color: #f1b0b7;
+}
+
+.diff-line.removed .diff-line-content::before {
+    content: "- ";
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* Modified lines */
+.diff-line.modified {
+    background-color: #fff3cd;
+    border-left-color: #ffc107;
+}
+
+.diff-line.modified .diff-line-number {
+    background-color: #ffeaa7;
+}
+
+.diff-line.modified .diff-line-content::before {
+    content: "~ ";
+    color: #ffc107;
+    font-weight: bold;
+}
+
+/* Unchanged lines */
+.diff-line.unchanged {
+    background-color: #fff;
+}
+
+.diff-line.unchanged .diff-line-content::before {
+    content: "  ";
+}
+
+/* Error styling */
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #f5c6cb;
+    margin: 10px 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .input-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .input-group textarea {
+        min-height: 150px;
+    }
+}

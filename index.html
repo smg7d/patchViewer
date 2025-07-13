@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Diff Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>JSON Diff Viewer</h1>
+            <p>Paste your JSON and patch object to see the diff visualization</p>
+        </header>
+        
+        <div class="input-section">
+            <div class="input-group">
+                <label for="original-json">Original JSON:</label>
+                <textarea id="original-json" placeholder='{"name": "John", "age": 30, "city": "New York"}'></textarea>
+            </div>
+            
+            <div class="input-group">
+                <label for="patch-json">Patch Object:</label>
+                <textarea id="patch-json" placeholder='[{"op": "replace", "path": "/age", "value": 31}, {"op": "add", "path": "/email", "value": "john@example.com"}]'></textarea>
+            </div>
+            
+            <button id="generate-diff" class="btn-primary">Generate Diff</button>
+        </div>
+        
+        <div class="output-section">
+            <div class="diff-container">
+                <h3>Diff Result:</h3>
+                <div id="diff-output" class="diff-output">
+                    <div class="placeholder">
+                        Click "Generate Diff" to see the result
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
